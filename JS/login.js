@@ -7,10 +7,6 @@ $(document).ready(()  =>{
       errorMessage:"Falta tu boleta",
     },
     {
-      rule:"integer",
-      errorMessage:"Deben ser solo números",
-    },
-    {
       rule:"minLength",
       value:8,
       errorMessage:"Mínimo 8 digitos",
@@ -45,7 +41,18 @@ $(document).ready(()  =>{
             if(AX.cod == 0)
               location.reload();
             else
-              location.href = "home.html";
+              CacheManager.saveData("boleta",AX.boleta)
+              CacheManager.saveData("nombre",AX.nombre)
+              CacheManager.saveData("apPat",AX.apPat)
+              CacheManager.saveData("apMat",AX.apMat)
+              CacheManager.saveData("nomDepto",AX.depto)
+              CacheManager.saveData("correo",AX.correo)
+              CacheManager.saveData("estadoE",AX.estadoE)
+              CacheManager.saveData("acceso",AX.acceso)
+              if(AX.depto == "ADM")
+                location.href = "HSAdmin.html";
+              else
+                location.href = "home.html"
           }
         }); // sweetAlert/
       }

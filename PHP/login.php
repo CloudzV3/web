@@ -10,7 +10,7 @@
     $conn = $conexion->obtenerConexion();
 
     
-    $sqlCheckLogin = "SELECT nombre,apPat FROM profesor WHERE boleta = '$boleta' AND contrasena = '$password'";
+    $sqlCheckLogin = "SELECT nombre,apPat,apMat,nomdepto,correo,estadoE,acceso,boleta FROM profesor WHERE boleta = '$boleta' AND contrasena = '$password'";
     $resCheckLogin = mysqli_query($conn, $sqlCheckLogin);
     $numFilasRes = mysqli_num_rows($resCheckLogin);
     $respAX = [];
@@ -19,6 +19,14 @@
         $respAX["cod"] = 1;
         $respAX["msj"] = "Hola! Bienvenido $infCheckLogin[0] $infCheckLogin[1].";
         $respAX["icono"] = "success";
+        $respAX["boleta"] = $infCheckLogin[7];
+        $respAX["nombre"] = $infCheckLogin[0];
+        $respAX["apPat"] = $infCheckLogin[1];
+        $respAX["apMat"] = $infCheckLogin[2];
+        $respAX["depto"] = $infCheckLogin[3];
+        $respAX["correo"] = $infCheckLogin[4];
+        $respAX["estadoE"] = $infCheckLogin[5];
+        $respAX["acceso"] = $infCheckLogin[6];
         $_SESSION["boleta"] = $boleta;
     }else{
         $respAX["cod"] = 0;
