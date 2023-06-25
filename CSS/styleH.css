@@ -238,8 +238,6 @@ main{
     display:flex;
     justify-content: space-around; 
     transition: all .5s ease;
-    background-image: url("../ImgHS/shark.png");
-      
 }
 
  main .form_container{
