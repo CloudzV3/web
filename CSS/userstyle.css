@@ -1,0 +1,76 @@
+.info_user{
+    display: flex;
+    flex-wrap:wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    max-height:50%;
+    width: 90%;
+}
+
+.info_user img{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-right: 0px;
+    margin-top:40px;
+}
+
+.datos_userPadre{
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 65%;
+}
+
+.datos_user{
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    /*background-color: aqua;*/
+}
+
+.BDSM{
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.datos_user p{
+    margin:11px;
+    justify-content: space-around;
+    align-items:baseline;
+    /*background-color: beige;*/
+}
+
+.datos_user p span{
+    margin: 0px 5px;
+}
+
+.edit-btn {
+    display:block;
+    justify-content: space-around;
+    /*background-color: #1F6E8C;*/
+    max-width:4000px;
+    max-height: 4000px;
+    padding: 10px;
+    color: white;
+    background: linear-gradient(to right,#146C94, #19A7CE, #AFD3E2);
+    border:none;
+    border-radius: 100%;
+    cursor: pointer;
+    margin:0px;
+    align-items: right;
+}
+
+
+@media (max-width:500px) {
+    .datos_userPadre{
+        text-align: center;
+    }
+    .info_user img{
+        margin-right: 40px;
+        margin-top: 40px;
+    }
+
+}
