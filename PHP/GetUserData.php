@@ -17,12 +17,17 @@
     }
 
     // Consulta SQL
-    $sql = "SELECT nomdepto FROM profesor WHERE boleta = '".$_GET['boleta']."' and contrasena = '".$_GET['password']."'";
+    $sql = "SELECT nomdepto FROM profesor WHERE boleta = '".$_POST['boleta']."' and contrasena = '".$_POST['password']."'";
 
     // Ejecutar la consulta y obtener el resultado
     $resultado = $conn->query($sql);
 
-
+    $tableData = array();
+    while ($row = $resultado->fetch_assoc()) {
+        $tableData[] = $row;
+    }
+    
+    echo json_encode($tableData);
 
     // Cerrar la conexión cuando hayas terminado
     $conexion->cerrarConexion();

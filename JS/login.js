@@ -1,39 +1,54 @@
-$(document).on('submit','#login', function(event){
-    event.preventDefault();
+$(document).ready(()  =>{
 
-    var boleta = this.login.boleta;
-
+  const validarLogin = new JustValidate("#formlogin");
+  validarLogin.addField("#boleta",[
+    {
+      rule:"required",
+      errorMessage:"Falta tu boleta",
+    },
+    {
+      rule:"integer",
+      errorMessage:"Deben ser solo números",
+    },
+    {
+      rule:"minLength",
+      value:8,
+      errorMessage:"Mínimo 8 digitos",
+    },
+    {
+      rule:"maxLength",
+      value:10,
+      errorMessage:"Máximo 10 digitos",
+    }
+  ]).addField("#password",[
+    {
+      rule:"required",
+      errorMessage:"Falta tu contraseña",
+    },
+    {
+      rule:"password",
+      errorMessage:"Mínimo 8 caracteres, una letra, un número",
+    }
+  ]).onSuccess(()=>{
     $.ajax({
-        url: "PHP/loginAjax.php",
-        type: "POST",
-        dataType: "json",
-        data: {
-            boleta: boleta
-        },
-        beforeSend: function(){
-            
-        }
-    })
-    .done(function(respuesta){
-        console.log(respuesta);
-        if(!respuesta.error){
-            if(respuesta.nomdepto == 'ADM'){
-                location.href = 'home.php';
-            } else {//if (respuesta.nomdepto == 'IA'){
-                location.href = 'encuestas.php';
-            }
-        } else {
-            $('.error').slideDown('slow');
-            setTimeout(function(){
-                $('.error').slideUp('slow');
-            },3000);
-            $('login-btn').val('INGRESAR');   
-        }
-    })
-    .fail(function(respuesta){
-        console.log(respuesta);
-    })
-    .always(function(respuesta){
-        console.log("complete"); 
-    })
-});
+      url: "./PHP/login.php",
+      method: "POST",
+      data: $("form#formlogin").serialize(),
+      cache: false,
+      success:(respAX)=>{
+        let AX = JSON.parse(respAX);
+        Swal.fire({
+          title:"ESCOM - IPN",
+          text:AX.msj,
+          icon:AX.icono,
+          didDestroy:()=>{
+            if(AX.cod == 0)
+              location.reload();
+            else
+              location.href = "home.html";
+          }
+        }); // sweetAlert/
+      }
+    });
+  }); // justValidate/
+}); // ready/
