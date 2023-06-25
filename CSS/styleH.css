@@ -243,7 +243,6 @@ main{
 }
 
  main .form_container{
-    height: 100%;/*100%*/
     width: 95%;/*95%*/
     margin: auto;
     margin-top: 10px;
