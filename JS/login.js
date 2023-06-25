@@ -20,7 +20,7 @@ $(document).on('submit','#login', function(event){
             if(respuesta.nomdepto == 'ADM'){
                 location.href = 'home.php';
             } else {//if (respuesta.nomdepto == 'IA'){
-                location.href = 'encuestas.php';
+                location.href = 'encuestas.html';
             }
         } else {
             $('.error').slideDown('slow');
