@@ -63,7 +63,7 @@
                 <span class="tooltip">Usuario</span>
             </li>
             <li>
-                <a href="encuestas.php">
+                <a href="encuestas.html">
                     <i class='bx bx-grid-alt'></i>
                     <span class="links_name">Tareas</span>
                 </a>

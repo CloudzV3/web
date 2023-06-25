@@ -1,33 +1,4 @@
 <!DOCTYPE html>
-<?php
-    session_start();
-    include "PHP/SetDB.php";
-
-    $boleta = $_SESSION["boleta"];
-
-    if(!isset($boleta)){
-        header("location: login.php");
-    } else {
-        $sql = $conexion->query(" select * from profesor where boleta = '$boleta' ");
-
-        $datos = $sql->fetch_object();
-        $nombre = "";
-        $depto = "";
-        if($datos){
-            $nombre = $datos->nombre;
-            $depto = $datos->nomdepto;
-            $boleta = $datos->boleta;
-            $apellidoPaterno = $datos->apPat;
-            $apellidoMaterno = $datos->apMat;
-            $correo = $datos->correo;
-            $boleta = $datos->boleta;
-            $boleta = $datos->boleta;
-            $nombreC = "$nombre $apellidoPaterno $apellidoMaterno";
-        } else {
-            
-        }
-    
-?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -44,14 +15,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
     <!--boxicons CDN link-->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
 </head>
 <!--JUST VALIDATE link-->
 <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"></script>
 <!--SweetAlert link-->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<link rel="stylesheet" href="sweetalert2.min.css">
+<script src="JS/encuestas.js" defer></script>
 
-<body>
+<body onload="getSurveyData()">
     <div class="sidebar">
         <div class="logo_content">
             <div class="logo">
@@ -105,24 +78,24 @@
             </div>
             <div class="row">
                 <div class="input-field col s6">
-                    <input value=<?php echo "'$nombreC'" ;?> id="first_name2" type="text" class="validate" disabled>
-                    <label class="active" for="first_name2">Nombre</label>
+                    <input value="" id="input_name" type="text" class="validate" disabled>
+                    <label class="active" for="input_name">Nombre</label>
                 </div>
                 <div class="row">
                     <div class="input-field col s6">
-                      <input value=<?php echo "$boleta" ;?> id="first_name2" type="text" class="validate" disabled>
-                      <label class="active" for="first_name2">Boleta</label>
+                      <input value="" id="input_boleta" type="text" class="validate" disabled>
+                      <label class="active" for="input_boleta">Boleta</label>
                     </div>
                 </div>
                 <p>¿Desea impartir más que la carga máxima de materias?</p>
-                <form action="#">
+                <form id="formulario" action="#">
                     <p>
                         <input class="with-gap" name="group1" type="radio" id="simax"  />
                         <label for="simax">Si</label>
                         <input class="with-gap" name="group1" type="radio" id="nomax"  />
                         <label for="nomax">No</label>
                     </p>
-                    <p>Materias:  (Debe elgir al menos 1 materia y máximo 4 materias)</p> 
+                    <p>Materias:  (Debe elgir al menos 1 materia y máximo 4 materias)</p>
                     <p>Ordenar por:</p>
                     <!-- Switch -->
                     <div class="switch">
@@ -147,13 +120,11 @@
                           Semestre
                         </label>
                     </div>
-                    <p>
-                        <input type="checkbox" id="cuadrito"  />
-                        <label for="cuadrito">Materia</label>
-                    </p>
+                    <div id="materias">
+                    </div>
                     <tr><th><p>Actividades de Descarga:</p></th></tr>
-                    <input type="checkbox" id="101" checked="checked" />
-                    <label for="101">Preparación de Clases </label>
+                    <div id="activities">
+                    </div>
                     <div class="hrs">
                         <label for="hrs">Número de Horas</label>
                         <input placeholder="HRS" id="hrs" type="number"  max="12" class="validate">
@@ -168,27 +139,11 @@
                         <p></p>
 
                     </p>
-                    <center><input class="submit-btn" name = "submit-btn" type="submit"  value="ENVIAR"/></center>
+                    <center><input class="submit-btn" name = "submit-btn" id="submit-btn" type="submit" onclick="encuestas()"  value="ENVIAR"/></center>
                 </form>
         </div>
     </div>
+    </div>
     </main>
-
-    <script type="text/javascript">
-        let btn = document.querySelector("#btn");
-        let sidebar = document.querySelector(".sidebar");
-        let searchBtn = document.querySelector(".bx-search");
-
-        btn.onclick = function(){
-            sidebar.classList.toggle("active");
-        }
-        searchBtn.onclick = function(){
-            sidebar.classList.toggle("active");
-        }
-        
-    </script>
 </body>
 </html>
-<?php
-    }
-?>
