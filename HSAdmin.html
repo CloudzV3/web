@@ -9,20 +9,20 @@
     <link rel="stylesheet" type="text/css" href="CSS/styleHA.css">
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!--Import materialize.css-->
+    <!--Import materialize.css
     <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
     <!--Materialize link-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
     <!--boxicons CDN link-->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-</head>
-<!--JUST VALIDATE link-->
-<script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"></script>
-<!--SweetAlert link-->
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<link rel="stylesheet" href="sweetalert2.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="./js/libs/justValidate.js"></script>
+    <script src="./js/libs/sweetAlert.min.js"></script>
+    <script src="JS/cacheManager.js"></script>
+    <script src="JS/HSAdmin.js" defer></script>
 
-<body>
+</head>
+<body onload="getInitialValues()">
     <div class="sidebar">
         <div class="logo_content">
             <div class="logo">
@@ -55,11 +55,11 @@
                 <span class="tooltip">Personal</span>
             </li>
             <li>
-                <a href="#">
+                <a href="CreaUser.html">
                     <i class='bx bx-cog'></i>
-                    <span class="links_name">Ajustes</span>
+                    <span class="links_name">Registrar</span>
                 </a>
-                <span class="tooltip">Ajustes</span>
+                <span class="tooltip">Registrar</span>
             </li>
             <li>
                 <a href="./HSAdmin.html">
@@ -74,8 +74,8 @@
                 <div class="profile_details">
                     <img src="ImgHS/profile.jpg" alt="">
                     <div class="name_job">
-                        <div class="name">John Doe</div>
-                        <div class="job">Administrador</div>
+                        <div class="name" id="nombreAdmin"></div>
+                        <div class="job" id="depto"></div>
                     </div>
                 </div>
                 <i class='bx bx-log-out' id="log_out"></i>

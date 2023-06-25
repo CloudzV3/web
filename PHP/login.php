@@ -1,4 +1,5 @@
 <?php
+    session_start();
     include "ConexionDB.php";
 
     $boleta = $_POST['boleta'];
