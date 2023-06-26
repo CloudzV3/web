@@ -1,5 +1,16 @@
-$(document).ready(()  =>{
+function getInitialValues(){
+  let sesion = CacheManager.getData("sesion");
+  if(sesion === "1"){
+    if(CacheManager.getData("nomdepto") === "ADM"){
+      location.href = "HSAdmin.html";
+    } else {
+      location.href = "home.html";
+    }
+  } 
+}
 
+$(document).ready(()  =>{
+  
   const validarLogin = new JustValidate("#formlogin");
   validarLogin.addField("#boleta",[
     {
@@ -49,7 +60,8 @@ $(document).ready(()  =>{
               CacheManager.saveData("correo",AX.correo)
               CacheManager.saveData("estadoE",AX.estadoE)
               CacheManager.saveData("acceso",AX.acceso)
-              if(AX.depto == "ADM")
+              CacheManager.saveData("sesion","1")
+              if(AX.depto === "ADM")
                 location.href = "HSAdmin.html";
               else
                 location.href = "home.html"
