@@ -15,6 +15,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
     <!--boxicons CDN link-->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="JS/cacheManager.js"></script>
+    <script src="JS/home.js" defer></script>
+
 </head>
 <!--JUST VALIDATE link-->
 <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"></script>
@@ -22,7 +26,7 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
-<body>
+<body onload="getInitialData()">
     <div class="sidebar">
         <div class="logo_content">
             <div class="logo">
@@ -69,7 +73,35 @@
         </div> 
     </div>
     <main >
-        
+        <h1 id="title_home">Hola mundo</h1>
+        <h3>Actividades</h3>
+        <table>
+            <thead>
+            <tr>
+                <th>Clave</th>
+                <th>Nombre</th>
+                <th>Horas</th>
+            </tr>
+            </thead>
+            <tbody id="table_actividades">
+            </tbody>
+        </table>
+
+        <h3>Materias</h3>
+        <table>
+            <thead>
+            <tr>
+                <th>Clave</th>
+                <th>Nombre</th>
+                <th>Semestre</th>
+                <th>Academia</th>
+                <th>Plan</th>
+                <th>Programa</th>
+            </tr>
+            </thead>
+            <tbody id="table_materias">
+            </tbody>
+        </table>
     </main>
 
     <script type="text/javascript">
@@ -78,9 +110,6 @@
         let searchBtn = document.querySelector(".bx-search");
 
         btn.onclick = function(){
-            sidebar.classList.toggle("active");
-        }
-        searchBtn.onclick = function(){
             sidebar.classList.toggle("active");
         }
         
