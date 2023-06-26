@@ -1,10 +1,12 @@
 
+let titleHome = document.getElementById("title_home");
 let activitiesTableBody = document.getElementById("table_actividades");
 let materiasTableBody = document.getElementById("table_materias");
 let actvitiesData = [];
 let materiassData = [];
 
 function getInitialData() {
+    titleHome.textContent = "Bienvenido " + CacheManager.getData("nombre")
     getActivitiesData()
     getMateriasData()
 }
