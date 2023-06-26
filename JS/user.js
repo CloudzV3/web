@@ -8,7 +8,7 @@ let apellidoMaterno = document.getElementById("apMat");
 let email = document.getElementById("correo");
 let boleta = document.getElementById("boleta");
 
-function getInitialValues (){
+function getInValues (){
     var name = CacheManager.getData("nombre");
     var departamento = CacheManager.getData("nomDepto");
     var apPat = CacheManager.getData("apPat");
@@ -17,7 +17,7 @@ function getInitialValues (){
     var bol = CacheManager.getData("boleta");
     
     boleta.value = bol;
-    nombre.innerText = name;
+    nombre.textContent = name;
     depto.innerText = departamento;
     deptoEdit.value = departamento;
     otroNombre.value = name;
@@ -95,7 +95,7 @@ $(document).ready(()=>{
                 CacheManager.saveData("apMat",AX.apMat)
                 CacheManager.saveData("nomDepto",AX.depto)
                 CacheManager.saveData("correo",AX.correo)
-                location.href = "./HSAdmin.html";
+                location.href = "user.html";
               if(AX.cod == 0)
                 location.reload();
             }

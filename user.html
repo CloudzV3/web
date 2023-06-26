@@ -1,31 +1,32 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin HomeScreen</title>
+    <title>User</title>
     <link rel="shortcut icon" href="ImgHS/shark.png">
-    <link rel="stylesheet" type="text/css" href="CSS/styleHA.css">
-    <link rel="stylesheet" type="text/css" href="CSS/userstyle.css">
-
+    <link rel="stylesheet" href="CSS/styleH.css">
+    <link rel="stylesheet" href="CSS/userstyle.css">
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
-    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <!--Materialize link-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
     <!--boxicons CDN link-->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="./js/libs/justValidate.js"></script>
     <script src="./js/libs/sweetAlert.min.js"></script>
     <script src="JS/cacheManager.js"></script>
-    <script src="JS/admin.js" defer></script>
+
+    <script src="JS/user.js" defer></script>
 </head>
 
-
-<body onload="getInitialValues()">
+<body onload="getInValues()">
     <div class="sidebar">
         <div class="logo_content">
             <div class="logo">
@@ -37,35 +38,21 @@
         </div>
         <ul class="nav_list">
             <li>
-                <a href="./admi.html">
-                    <i class='bx bx-fingerprint'></i>
+                <a href="#">
+                    <i class='bx bx-user'></i>
                     <span class="links_name">Usuario</span>
                 </a>
                 <span class="tooltip">Usuario</span>
             </li>
             <li>
-                <a href="./Aencuesta.html">
-                    <i class='bx bx-pie-chart-alt-2'></i>
-                    <span class="links_name">Analiticos</span>
+                <a href="encuestas.html">
+                    <i class='bx bx-grid-alt'></i>
+                    <span class="links_name">Tareas</span>
                 </a>
-                <span class="tooltip">Analiticos</span>
+                <span class="tooltip">Tareas</span>
             </li>
             <li>
-                <a href="./Apersonal.html">
-                    <i class='bx bx-walk'></i>
-                    <span class="links_name">Personal</span>
-                </a>
-                <span class="tooltip">Personal</span>
-            </li>
-            <li>
-                <a href="#">
-                    <i class='bx bx-cog'></i>
-                    <span class="links_name">Ajustes</span>
-                </a>
-                <span class="tooltip">Ajustes</span>
-            </li>
-            <li>
-                <a href="./HSAdmin.html">
+                <a href="home.html">
                     <i class='bx bx-home'></i>
                     <span class="links_name">Principal</span>
                 </a>
@@ -75,13 +62,13 @@
         <div class="profile_content">
             <div class="profile">
                 <div class="profile_details">
-                    <img src="https://picsum.photos//200" alt="">
+                    <img src="ImgHS/profile.jpg" alt="">
                     <div class="name_job">
                         <div class="name" id="name"></div>
                         <div class="job" id="depto"></div>
                     </div>
                 </div>
-                <i class='bx bx-log-out' id="log_out"></i>
+                <i  href="" class='bx bx-log-out' id="log_out"></i>
             </div>
         </div> 
     </div>
@@ -123,16 +110,19 @@
         </div>
     </main>
 
-    
     <script type="text/javascript">
         let btn = document.querySelector("#btn");
         let sidebar = document.querySelector(".sidebar");
         let searchBtn = document.querySelector(".bx-search");
+        let editbtn = document.querySelector(".edit-btn");
+        let datoUserE = document.querySelector(".dato_userE");
+        let parrafo = document.querySelector(".parrafo");
 
         btn.onclick = function(){
             sidebar.classList.toggle("active");
         }
-        searchBtn.onclick = function(){
+
+        editbtn.onclick = function(){
             sidebar.classList.toggle("active");
         }
         
