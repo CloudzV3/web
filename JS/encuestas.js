@@ -128,6 +128,9 @@ function sendSurvey() {
         method:"POST",
         data: data,
         success: (response) => {
+            CacheManager.removeData("estadoE");
+            CacheManager.saveData("estadoE", "1");
+            location.href = "home.html";
             console.log(response);
         },
         error: (error) => {
@@ -167,40 +170,50 @@ function getSelectedHours() {
     for (let i = 0; i < activitiesDivElement.childNodes.length; i++) {
         let element = activitiesDivElement.childNodes[i];
         if (element.tagName === "INPUT" && element.type === "number" && element.value !== "") {
-            horas.push(element.value);
+            horas.push(parseFloat(element.value));
         }
     }
     return horas
 }
 
-getSelectedMaxiumLoad()
-
 function validateFields() {
     // Seleccionar al menos una materia
     console.log("SELECTED: ", getSelectedMaxiumLoad());
     console.log("NUMBER: ", getSelectedMaterias().length);
-    if (getSelectedMaterias().length > 0) {
-        if (getSelectedMaterias().length <= (getSelectedMaxiumLoad() ? 99999 : 4)) {
-            if (getSelectedHours().length === getSelectedActivities().length) {
-                sendSurvey()
+    if (CacheManager.getData("estadoE") === "0") {
+        if (getSelectedMaterias().length > 0) {
+            if (getSelectedMaterias().length <= (getSelectedMaxiumLoad() ? 99999 : 4)) {
+                if (getSelectedHours().length === getSelectedActivities().length) {
+                    if (getSelectedHours().reduce((a, b) => { return a + parseFloat(b) }, 0) <= 22) {
+                        sendSurvey()
+                    } else {
+                        showAlert(false, "Error", "El maximo de horas permitidas es 22");
+                    }
+                } else {
+                    showAlert(false, "Error", "Las horas no coinciden con las actividades seleccionadas");
+                }
             } else {
-                showAlert(false, "Error", "Las horas no coinciden con las actividades seleccionadas");
+                showAlert(false, "Error", "Sobrepaso la carga maxima de materias");
             }
         } else {
-            showAlert(false, "Error", "Sobrepaso la carga maxima de materias");
+            showAlert(false, "Error", "Seleccione al menos una materia");
         }
     } else {
-        showAlert(false, "Error", "Seleccione al menos una materia");
+        showAlert(false, "Error", "Ya haz realizado esta encuesta", route = "home.html");
     }
+
 }
 
-function showAlert(success, title, message, routeSuccess, routeError) {
+function showAlert(success, title, message, route = "") {
     Swal.fire({
         title:title,
         text:message,
         icon:success ? "success" : "error",
         didDestroy:()=>{
             console.log("Alerta mostrada correctamente");
+            if (route !== "") {
+                location.href = route;
+            }
         }
     }); // sweetAlert/
 }
