@@ -5,30 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin HomeScreen</title>
-    <link rel="shortcut icon" href="../ImgHS/shark.png">
-    <link rel="stylesheet" type="text/css" href="../CSS/styleHA.css">
-    <link rel="stylesheet" type="text/css" href="../CSS/userstyle.css">
+    <link rel="shortcut icon" href="ImgHS/shark.png">
+    <link rel="stylesheet" type="text/css" href="CSS/styleHA.css">
+    <link rel="stylesheet" type="text/css" href="CSS/userstyle.css">
 
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
-    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <!--<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>-->
     <!--Materialize link-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
     <!--boxicons CDN link-->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!--<link rel="stylesheet" href="sweetalert2.min.css">-->
+    <!--JUST VALIDATE link-->
+    <!--SweetAlert link-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="JS/cacheManager.js"></script>
+    <script src="JS/Apersonal.js" defer></script>
 </head>
-<!--JUST VALIDATE link-->
-<script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"></script>
-<!--SweetAlert link-->
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<link rel="stylesheet" href="sweetalert2.min.css">
+
 
 <body>
     <div class="sidebar">
         <div class="logo_content">
             <div class="logo">
-                <img class="escom" src="../ImgHS/logoESCOMBlanco.ico">
+                <img class="escom" src="ImgHS/logoESCOMBlanco.ico">
                 <!--<i class='bx bxl-codepen'></i>-->
                 <div class="logo_name">3SC0M</div>
             </div>
@@ -74,7 +76,7 @@
         <div class="profile_content">
             <div class="profile">
                 <div class="profile_details">
-                    <img src="../ImgHS/profile.jpg" alt="">
+                    <img src="ImgHS/profile.jpg" alt="">
                     <div class="name_job">
                         <div class="name">John Doe</div>
                         <div class="job">Administrador</div>
@@ -100,7 +102,7 @@
                 -->
                 <h2>INFORMACION DEL PERSONAL</h2>
                 <!--
-                <img src="../ImgHS/profile.jpg" alt="" class="imagen">
+                <img src="ImgHS/profile.jpg" alt="" class="imagen">
                     <div class="datos_userPadre">
                         
                         <div class="BDSM">
@@ -130,26 +132,37 @@
 
                     <ul class="navbar-nav ml-auto">
                         <form class="form-inline my-2 my-lg-0">
-                            <input type="search" id="sear" class="form-control mr-sm-2" placeholder="BUSCA AL MAISTRO">
-                            <button class="btn btn-success my-2 my-sm-0" type="submit">
+                            <input type="search" id="searchup" class="form-control mr-sm-2" placeholder="BUSCA AL MAISTRO">
+                            <button class="btn btn-success my-2 my-sm-0" type="submit" onclick="searchdata()">
                                 BUSCAR
                             </button>
                         </form>
 
                     </ul>
-                                <table class="table table-bordered">
-                                    <thead>
-                                        <tr>
-                                            <td>Boleta</td>
-                                            <td>Admin</td>
-                                            <td>Nombre</td>
-                                            <td>apPat</td>
-                                            <td>apMat</td>
-                                            <td>Correo</td>
-                                        </tr>
-                                    </thead>
-
-                                </table>
+                        <div class="card my-4" id="task-result">
+                          <div class="card-body">
+                            <!-- SEARCH -->
+                            <ul id="container"></ul>
+                          </div>
+                        </div>
+              
+                        <table class="table table-bordered table-sm">
+                          <thead>
+                           
+                          </thead>
+                          <tbody id="tasks">
+                            <tr>
+                                <td>Boleta</td>
+                                <td>Admin</td>
+                                <td>Nombre</td>
+                                <td>apPat</td>
+                                <td>apMat</td>
+                                <td>Correo</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+              
 
 
             </div>
@@ -158,18 +171,5 @@
 
     </main>
 
-    <script>
-
-    </script>
-
-    <script type="text/javascript">
-        let btn = document.querySelector("#btn");
-        let sidebar = document.querySelector(".sidebar");
-
-        btn.onclick = function(){
-            sidebar.classList.toggle("active");
-        }
-    </script>
-    
 </body>
-</html>sweetalert2
+</html>
