@@ -48,19 +48,14 @@
 }
 
 .edit-btn {
-    display:block;
-    justify-content: space-around;
-    /*background-color: #1F6E8C;*/
-    max-width:4000px;
-    max-height: 4000px;
+    width: 68%;
     padding: 10px;
     color: white;
     background: linear-gradient(to right,#146C94, #19A7CE, #AFD3E2);
     border:none;
-    border-radius: 100%;
+    border-radius: 20px;
     cursor: pointer;
-    margin:0px;
-    align-items: right;
+    margin-top: 10px;
 }
 
 

@@ -244,14 +244,14 @@ main{
     width: 95%;/*95%*/
     margin: auto;
     margin-top: 10px;
-    /*justify-content: center;*/
+    justify-content: center;
     padding: 10px 50px 20px;
     background: #c8f2ff;
     border-radius: 12px;
     position: sticky;
     display:flex;
     flex-wrap: wrap;
-    /*overflow: scroll;*/
+    overflow: scroll;
 }
 
 main .form_container .form_header{

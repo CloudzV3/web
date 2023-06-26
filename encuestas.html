@@ -22,9 +22,10 @@
 <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"></script>
 <!--SweetAlert link-->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="JS/cacheManager.js"></script>
 <script src="JS/encuestas.js" defer></script>
 
-<body onload="getSurveyData()">
+<body onload="getInitialData()">
     <div class="sidebar">
         <div class="logo_content">
             <div class="logo">
@@ -90,56 +91,31 @@
                 <p>¿Desea impartir más que la carga máxima de materias?</p>
                 <form id="formulario" action="#">
                     <p>
-                        <input class="with-gap" name="group1" type="radio" id="simax"  />
+                        <input class="with-gap" name="group1" type="radio" id="simax" checked="checked"  />
                         <label for="simax">Si</label>
                         <input class="with-gap" name="group1" type="radio" id="nomax"  />
                         <label for="nomax">No</label>
                     </p>
                     <p>Materias:  (Debe elgir al menos 1 materia y máximo 4 materias)</p>
-                    <p>Ordenar por:</p>
                     <!-- Switch -->
                     <div class="switch">
-                      <label>
-                        <input type="checkbox">
-                        <span class="lever"></span>
-                        Academia
-                      </label>
-                        <label>
-                          <input type="checkbox">
-                          <span class="lever"></span>
-                          Plan
-                        </label>
-                        <label>
-                          <input type="checkbox">
-                          <span class="lever"></span>
-                          Programa
-                        </label>
-                        <label>
-                          <input type="checkbox">
-                          <span class="lever"></span>
-                          Semestre
-                        </label>
+                        <p style="display: inline">Ordenar por:</p><br/>
+                        <input type="radio" name="group" value="Academia" id="academia" onclick="sortMaterias()">
+                        <label for="academia">Academia</label>
+                        <input type="radio" name="group" value="Plan" id="plan" onclick="sortMaterias()">
+                        <label for="plan">Plan</label>
+                        <input type="radio" name="group" value="Programa" id="programa" onclick="sortMaterias()">
+                        <label for="programa">Programa</label>
+                        <input type="radio" name="group" value="Semestre" id="semestre" onclick="sortMaterias()">
+                        <label for="semestre">Semestre</label>
                     </div>
                     <div id="materias">
                     </div>
                     <tr><th><p>Actividades de Descarga:</p></th></tr>
                     <div id="activities">
                     </div>
-                    <div class="hrs">
-                        <label for="hrs">Número de Horas</label>
-                        <input placeholder="HRS" id="hrs" type="number"  max="12" class="validate">
-                    </div>
                     </p>
-                    <p>
-                        <input type="checkbox" id="103" checked="checked" />
-                        <label for="103">Atención a Alumnos </label>
-                        <p></p>
-                        <input type="checkbox" id="104" />
-                        <label for="104">Elaboración de Exámenes</label>
-                        <p></p>
-
-                    </p>
-                    <center><input class="submit-btn" name = "submit-btn" id="submit-btn" type="submit" onclick="encuestas()"  value="ENVIAR"/></center>
+                    <input class="submit-btn" name = "submit-btn" id="submit-btn" type="submit" onclick="validateFields()"  value="ENVIAR"/>
                 </form>
         </div>
     </div>
