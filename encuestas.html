@@ -37,7 +37,7 @@
         </div>
         <ul class="nav_list">
             <li>
-                <a href="user.php">
+                <a href="user.html">
                     <i class='bx bx-user'></i>
                     <span class="links_name">Usuario</span>
                 </a>
@@ -51,7 +51,7 @@
                 <span class="tooltip">Tareas</span>
             </li>
             <li>
-                <a href="home.php">
+                <a href="home.html">
                     <i class='bx bx-home'></i>
                     <span class="links_name">Principal</span>
                 </a>
@@ -63,8 +63,8 @@
                 <div class="profile_details">
                     <img src="ImgHS/profile.jpg" alt="">
                     <div class="name_job">
-                        <div class="name"><?php echo "$nombre"; ?></div>
-                        <div class="job"><?php echo "$depto"; ?></div>
+                        <div class="name"></div>
+                        <div class="job"></div>
                     </div>
                 </div>
                 <a href="PHP/logout.php"><i class='bx bx-log-out' id="log_out"></i></a>
@@ -121,5 +121,18 @@
     </div>
     </div>
     </main>
+    <script type="text/javascript">
+        let btn = document.querySelector("#btn");
+        let sidebar = document.querySelector(".sidebar");
+        let searchBtn = document.querySelector(".bx-search");
+
+        btn.onclick = function(){
+            sidebar.classList.toggle("active");
+        }
+        searchBtn.onclick = function(){
+            sidebar.classList.toggle("active");
+        }
+        
+    </script>
 </body>
 </html>
