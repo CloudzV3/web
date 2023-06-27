@@ -7,7 +7,7 @@ function getInitialValues(){
         location.href = "home.html";
       }
     } else{
-        location.href = "index.html";
+        location.replace("index.html");
     }
 
   }
