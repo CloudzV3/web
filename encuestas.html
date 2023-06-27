@@ -23,6 +23,7 @@
 <!--SweetAlert link-->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="JS/cacheManager.js"></script>
+<script src="JS/sesion.js"></script>
 <script src="JS/encuestas.js" defer></script>
 
 <body onload="getInitialData()">
@@ -67,7 +68,7 @@
                         <div class="job"></div>
                     </div>
                 </div>
-                <a href="PHP/logout.php"><i class='bx bx-log-out' id="log_out"></i></a>
+                <button onclick="logout()"><i class='bx bx-log-out' id="log_out"></i></button>
             </div>
         </div> 
     </div>
