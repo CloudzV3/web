@@ -1,7 +1,7 @@
 function getInitialValues(){
   let sesion = CacheManager.getData("sesion");
   if(sesion === "1"){
-    if(CacheManager.getData("nomdepto") === "ADM"){
+    if(CacheManager.getData("nomDepto") === "ADM"){
       location.href = "HSAdmin.html";
     } else {
       location.href = "home.html";
@@ -49,9 +49,8 @@ $(document).ready(()  =>{
           text:AX.msj,
           icon:AX.icono,
           didDestroy:()=>{
-            if(AX.cod == 0)
-              location.reload();
-            else
+            console.log(AX.cod);
+            if(AX.cod === "1"){
               CacheManager.saveData("boleta",AX.boleta)
               CacheManager.saveData("nombre",AX.nombre)
               CacheManager.saveData("apPat",AX.apPat)
@@ -61,10 +60,14 @@ $(document).ready(()  =>{
               CacheManager.saveData("estadoE",AX.estadoE)
               CacheManager.saveData("acceso",AX.acceso)
               CacheManager.saveData("sesion","1")
-              if(AX.depto === "ADM")
+              if(AX.depto === "ADM"){
                 location.href = "HSAdmin.html";
-              else
-                location.href = "home.html"
+              }else{
+                location.href = "home.html";
+              }
+            }
+            else
+              location.href = "index.html";
           }
         }); // sweetAlert/
       }

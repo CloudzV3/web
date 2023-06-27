@@ -17,7 +17,7 @@
     $respAX = [];
     if($numFilasRes == 1){
         $infCheckLogin = mysqli_fetch_row($resCheckLogin);
-        $respAX["cod"] = 1;
+        $respAX["cod"] = "1";
         $respAX["msj"] = "Hola! Bienvenido $infCheckLogin[0] $infCheckLogin[1].";
         $respAX["icono"] = "success";
         $respAX["boleta"] = $infCheckLogin[7];
@@ -30,7 +30,7 @@
         $respAX["acceso"] = $infCheckLogin[6];
         $_SESSION["boleta"] = $boleta;
     }else{
-        $respAX["cod"] = 0;
+        $respAX["cod"] = "0";
         $respAX["msj"] = "Error. Favor de intentarlo nuevamente.";
         $respAX["icono"] = "error";
     }
