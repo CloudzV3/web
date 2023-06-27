@@ -27,7 +27,7 @@
 </head>
 
 
-<body onload="sesion()">
+<body onload="getInitialValues(); sesion();">
     <div class="sidebar">
         <div class="logo_content">
             <div class="logo">
@@ -130,7 +130,7 @@
                         <button class="edit-btn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-pencil"><line x1="18" x2="22" y1="2" y2="6"/><path d="M7.5 20.5 19 9l-4-4L3.5 16.5 2 22z"/></svg></button>
                         </div>-->
                     </div>
-
+            <!--
                     <ul class="navbar-nav ml-auto">
                         <form class="form-inline my-2 my-lg-0">
                             <input type="search" id="searchup" class="form-control mr-sm-2" placeholder="BUSCA AL MAISTRO">
@@ -140,6 +140,7 @@
                         </form>
 
                     </ul>
+                    -->
                         <div class="card my-4" id="task-result">
                           <div class="card-body">
                             <!-- SEARCH -->
@@ -149,17 +150,17 @@
               
                         <table class="table table-bordered table-sm">
                           <thead>
-                           
+                          <tr>
+                              <th>Admin</th>
+                              <th>Boleta</th>
+                              <th>Nombre</th>
+                              <th>apPat</th>
+                              <th>apMat</th>
+                              <th>Correo</th>
+                              <th>Encuesta</th>
+                          </tr>
                           </thead>
-                          <tbody id="tasks">
-                            <tr>
-                                <td>Boleta</td>
-                                <td>Admin</td>
-                                <td>Nombre</td>
-                                <td>apPat</td>
-                                <td>apMat</td>
-                                <td>Correo</td>
-                            </tr>
+                          <tbody id="table_profesores">
                           </tbody>
                         </table>
                       </div>
