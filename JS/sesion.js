@@ -1,4 +1,4 @@
-function getInitialValues(){
+function sesion(){
     let sesion = CacheManager.getData("sesion");
     if(sesion === "1"){
       if(CacheManager.getData("nomDepto") === "ADM"){
