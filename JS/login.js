@@ -2,9 +2,9 @@ function getInitialValues(){
   let sesion = CacheManager.getData("sesion");
   if(sesion === "1"){
     if(CacheManager.getData("nomDepto") === "ADM"){
-      location.href = "HSAdmin.html";
+      location.replace("HSAdmin.html");
     } else {
-      location.href = "home.html";
+      location.replace("home.html");
     }
   } 
 }

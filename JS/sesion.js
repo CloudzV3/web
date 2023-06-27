@@ -1,15 +1,9 @@
 function sesion(){
     let sesion = CacheManager.getData("sesion");
-    if(sesion === "1"){
-      if(CacheManager.getData("nomDepto") === "ADM"){
-        location.href = "HSAdmin.html";
-      } else {
-        location.href = "home.html";
-      }
-    } else{
-        location.replace("index.html");
+    console.log(window.location.href);
+    if(sesion === "0"){
+      location.replace("index.html");
     }
-
   }
   
   function logout(){
